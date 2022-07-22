@@ -11,3 +11,8 @@ current features:
  - Lighten, Eraser buttons
  - brush size slider
  - Save as png
+
+
+# To-Do
+ - refactor to base JS
+ - add nextcloud wrapper

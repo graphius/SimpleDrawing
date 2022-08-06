@@ -3,7 +3,6 @@ function loadFile(file) {
    img.hide();
    image(img, 0, 0, width, height);
 
-
 }
 
 function saveimage() {
@@ -13,8 +12,6 @@ function saveimage() {
 
 function clearimage() {
   background(255);
-  strokeWeight(2);
-  stroke(0);
-  rect(0, 0, width, height);
+  
   sblack();
 }

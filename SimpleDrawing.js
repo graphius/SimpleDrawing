@@ -1,35 +1,29 @@
 
 function setup() {
   //createCanvas(window.innerWidth, window.innerHeight);
-  canvas = createCanvas(900, 800);
+  canvas = createCanvas(windowWidth, windowHeight - 20);
   canvas.drop(loadFile);
   noCursor();
-  //colorMode(RBG);
-    background(255);
-    stroke(0);
-    rect(0, 0, width, height);
 
-    redButton = select('#sred');
-    redButton.style("background-color", lred);
-    redButton.mousePressed(sred);
-    greenButton = select('#sgreen');
-    greenButton.style("background-color", lgreen);
-    greenButton.mousePressed(sgreen);
-    blueButton = select("#sblue");
-    blueButton.style("background-color", lblue);
-    blueButton.mousePressed(sblue);
-    blackButton = select("#sblack");
-    blackButton.style("background-color", dblack);
-    blackButton.style("color", "white");
-    blackButton.mousePressed(sblack);
-    whiteButton = select('#swhite');
-    whiteButton.style("background-color", lwhite);
-    whiteButton.style("color", "black");
-    whiteButton.mousePressed(swhite);
+    background(255);
+
+    //let p = createP('clear then drag image to upload, or just draw');
+    //p.position(canvas.width - 800,-10);
+
+
+
     eraseButton = select('#serase');
     eraseButton.style("background-color", lwhite);
-
     eraseButton.mousePressed(serase);
+    pencilButton = select('#spencil');
+    pencilButton.style("background-color", lwhite);
+    pencilButton.mousePressed(spencil);
+    waterButton = select('#swater');
+    waterButton.style("background-color", dwhite);
+    waterButton.mousePressed(swater);
+    inkButton = select('#sink');
+    inkButton.style("background-color", lwhite);
+    inkButton.mousePressed(sink);
     strokeSlider = select('#strokeSlider');
     saveButton = select("#saveImage");
     saveButton.style("background-color", "lightGrey");
@@ -37,26 +31,30 @@ function setup() {
     clearButton = select('#clearImage');
     clearButton.style("background-color", "LightGrey");
     clearButton.mousePressed(clearimage);
-    //filename = createInput('simpleDrawing');
-    //filename.changed(saveimage);
+    filename = createInput('simpleDrawing');
+    filename.changed(saveimage);
+    colourPicker = select("#penColour");
 
 
 }
 
 function draw() {
+   //cursorSize(sw, r, g, b);
+
+
+  Picker();
+  sw = strokeSlider.value();
+  stroke(sw);
   cursor(CROSS);
-  let sw = strokeSlider.value();
-  paint(r, g, b, a, sw);
+
+
+  paint(r, g, b, a, sw, tool);
 
 }
-
-
-
 
 function mousePressed() {
   start = true;
   points = [];
-
 }
 
 function mouseReleased() {

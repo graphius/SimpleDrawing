@@ -1,13 +1,20 @@
 var canvas;
 var img;
 var fileName;
+var tool = "brush";
+const colorEl = document.getElementById("colorpicker");
+let colorpick;
 
-var r = 0;
-var g = 0;
-var b = 0;
+var r;
+var g;
+var b;
 var a = 5;
+let hr;
+let hg;
+let hb;
 var ea = 255;
 var pa = 5;
+let sw = 15;
 
 points = [];
 start = false;
@@ -20,6 +27,9 @@ let greenButton;
 let redButton;
 let whiteButton;
 let eraseButton;
+let penColour;
+let inkButton;
+
 
 let lred = "rgba(255, 0, 0, 0.6)";
 let dred = "rgba(255, 0, 0, 1)";

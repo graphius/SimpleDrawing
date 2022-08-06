@@ -1,12 +1,21 @@
-function paint(r, g, b, a, sw){
+function paint(r, g, b, a, sw, tool) {
+   if(tool == "pencil" || tool == "erase"){
+     pencil(r, g, b, 255, sw);
 
+   } else if(tool == 'ink') {
+     ink(r, g, b);
+
+
+   } else {
   if(start) {
+
     points.push(createVector(mouseX, mouseY));
   }
 
-  if(mouseIsPressed && mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height){
+  if(mouseIsPressed && mouseX > 0 && mouseX < width && mouseY > 3 && mouseY < height){
 
   stroke(r, g, b, a);
+
   strokeWeight(sw);
   noFill();
   beginShape();
@@ -18,84 +27,44 @@ function paint(r, g, b, a, sw){
 
     }
   endShape();
-
 }
 }
+}
 
-function sred(){
-  r = 255;
-  g = 0;
-  b = 0;
-    redButton.style("background-color", dred);
-    greenButton.style("background-color", lgreen);
-    blueButton.style("background-color", lblue);
-    blackButton.style("background-color", lblack);
-    whiteButton.style("background-color", lwhite);
+function spencil() {
+    sblack();
+    tool = "pencil"
     eraseButton.style("background-color", lwhite);
-
+    pencilButton.style("background-color", dwhite);
+    waterButton.style("background-color", lwhite);
+    inkButton.style("background-color", lwhite);
 }
 
-function sblue(){
-  r = 0;
-  g = 0;
-  b = 255;
-  a = pa;
-  redButton.style("background-color", lred);
-  greenButton.style("background-color", lgreen);
-  blueButton.style("background-color", dblue);
-  blackButton.style("background-color", lblack);
-  whiteButton.style("background-color", lwhite);
-  eraseButton.style("background-color", lwhite);
+function swater() {
+    sblack();
+    tool = "water"
+    eraseButton.style("background-color", lwhite);
+    pencilButton.style("background-color", lwhite);
+    waterButton.style("background-color", dwhite);
+    inkButton.style("background-color", lwhite);
 }
-
-function sblack(){
-  r = 0;
-  g = 0;
-  b = 0;
-  a = pa;
-  redButton.style("background-color", lred);
-  greenButton.style("background-color", lgreen);
-  blueButton.style("background-color", lblue);
-  blackButton.style("background-color", dblack);
-  whiteButton.style("background-color", lwhite);
-  eraseButton.style("background-color", lwhite);
-}
-
-function sgreen(){
-  r = 0;
-  g = 255;
-  b = 0;
-  a = pa;
-  redButton.style("background-color", lred);
-  greenButton.style("background-color", dgreen);
-  blueButton.style("background-color", lblue);
-  blackButton.style("background-color", lblack);
-  whiteButton.style("background-color", lwhite);
-  eraseButton.style("background-color", lwhite);
-}
-
-function swhite(){
-  r = 255;
-  g = 255;
-  b = 255;
-  a = pa;
-  redButton.style("background-color", lred);
-  greenButton.style("background-color", lgreen);
-  blueButton.style("background-color", lblue);
-  blackButton.style("background-color", lblack);
-  whiteButton.style("background-color", dwhite);
-  eraseButton.style("background-color", lwhite);
+function sink() {
+    sblack();
+    tool = "ink"
+    eraseButton.style("background-color", lwhite);
+    pencilButton.style("background-color", lwhite);
+    waterButton.style("background-color", lwhite);
+    inkButton.style("background-color", dwhite);
 }
 
 function serase(){
   r = 255;
   g = 255;
   b = 255;
-  a = ea;
-  redButton.style("background-color", lred);
-  greenButton.style("background-color", lgreen);
-  blueButton.style("background-color", lblue);
-  blackButton.style("background-color", lblack);
-  whiteButton.style("background-color", lwhite);
+  tool = "erase"
   eraseButton.style("background-color", dwhite);
+  pencilButton.style("background-color", lwhite);
+  waterButton.style("background-color", lwhite);
+  inkButton.style("background-color", lwhite);
+  return(r, g, b);
 }

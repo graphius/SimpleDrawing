@@ -8,6 +8,10 @@
   <script language="javascript" type="text/javascript" src="globals.js"></script>
   <script language="javascript" type="text/javascript" src="brush.js"></script>
   <script language="javascript" type="text/javascript" src="files.js"></script>
+  <script language="javascript" type="text/javascript" src="colour-picker.js"></script>
+  <script language="javascript" type="text/javascript" src="cursor.js"></script>
+  <script language="javascript" type="text/javascript" src="pencil.js"></script>
+  <script language="javascript" type="text/javascript" src="ink.js"></script>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,17 +21,18 @@
 
 <button id='clearImage' class='file'>Clear</button>
 </span>
-<span id='colour' class="Buttons">
-<button id='sred' class='color'>RED</button>
-<button id='sgreen' class='color'>GREEN</button>
-<button id='sblue' class='color'>BLUE</button>
-<button id='sblack' class='color'>BLACK</button>
-<button id='swhite' class='color'>LIGHTEN</button>
-<button id='serase' class='color'>ERASER</button>
+  <input type="color" id="penColour">
+
+<span id ="brushes">
+<button id='serase' class='brush'>ERASER</button>
+<button id='spencil' class='brush'>PENCIL</button>
+<button id='swater' class='water'>WATER</button>
+<button id='sink' class='ink'>INK</button>
 </span>
 <span class="Sliders">
   <input type="range" min="1" max="40" value="15" class="size" id="strokeSlider">
 </span>
+<hr>
 <body>
 </body>
 </html>
